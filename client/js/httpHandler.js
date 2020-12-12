@@ -6,19 +6,34 @@
   // TODO: build the swim command fetcher here
   //
 
-setInterval(() => {
-  $.ajax({
-    type: 'GET',
-    url: serverUrl,
-    success: (data) => {
-      SwimTeam.move(data);
-    },
-    error: (err) => {
-      console.log('error reaching server: ' + err);
-    }
+  setInterval(() => {
+    $.ajax({
+      type: 'GET',
+      url: serverUrl,
+      success: (data) => {
+        SwimTeam.move(data);
+      },
+      error: (err) => {
+        console.log('error reaching server' + err)
+      }
+    })
+  }, 500)
 
-  })
-})}, 1000);
+
+// setInterval(() => {
+//   $.ajax({
+//     type: 'GET',
+//     url: serverUrl,
+//     success: (data) => {
+//       SwimTeam.move(data);
+
+//     },
+//     error: (err) => {
+//       console.log('error reaching server: ' + err);
+//     }
+
+//   })
+// })}, 1000);
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
@@ -31,7 +46,7 @@ setInterval(() => {
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: 'http://127.0.0.1:3000/background.jpg',
       cache: false,
       contentType: false,
       processData: false,
